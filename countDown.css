@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: lighter;
+    font-size: 3rem;
+    margin-top: 1rem;
+}
+
+body{
+    background-image:
+    linear-gradient(to bottom, rgba(158, 193, 233, 0.452), rgba(193, 201, 204, 0.226)),
+    url('https://raw.githubusercontent.com/florinpop17/10-projects-10-hours/master/countdown-timer/snow.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+.countdown-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.countdown-el{
+    text-align: center;
+}
+
+.big-text{
+    font-weight: bold;
+    font-size: 6rem;
+    line-height: 1;
+    margin: 1rem 2rem;
+}
