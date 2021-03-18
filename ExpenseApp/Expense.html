@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Expense.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link>
+    </link>
+    <title>Expense</title>
+</head>
+
+<body>
+
+    <h1 class="tittle">Expenses App</h1>
+
+    <div text="text" class="input-expense">
+        <input class="expense-name" id="expensename" placeholder="name of you expense" />
+    </div>
+    <div class="second-row">
+        <input type="date" class="expense-date" id="expensedate" placeholder="date of your expense" />
+        <input class="expense-amount" id="expenseamount" placeholder="amount $" />
+    </div>
+    <div class="submit-btn">
+        <button class="add-expense" id="addexpense">Add Expense</button>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead class="table-thead">
+            <tr>
+                <th scope="col">Expense Name</th>
+                <th scope="col">Expense Date</th>
+                <th scope="col">Expense Amount</th>
+            </tr>
+        </thead>
+        <tbody class="expenses">
+        </tbody>
+    </table>
+    <script src="Expense.js"></script>
+    <script src="bootstrap.min.js"></script>
+</body>
+
+</html>

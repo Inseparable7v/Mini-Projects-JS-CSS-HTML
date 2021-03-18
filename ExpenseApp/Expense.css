@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.tittle{
+    padding-bottom: 30px;
+    padding-top: 30px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    color: forestgreen;
+}
+
+table,tr{
+    padding-top: 200px;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+table, th{
+    padding-top: 35px;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.input-expense{
+    margin: 30px;
+    text-align: center;
+    align-items: center;
+}
+
+.second-row{    
+    
+    text-align: center;
+    align-items: center;
+}
+
+.expense-date{
+    width: 30.5rem;
+    height: 2.6rem;
+    border-color: forestgreen;
+}
+
+.expense-amount{
+    margin-left: 6.5rem;
+    width: 30.5rem;
+    height: 2.6rem;
+    border-color: forestgreen;
+}
+
+.expense-name{
+    width: 35.5rem;
+    height: 2.6rem;
+    border-color: forestgreen;
+    transition:all 0.1s ease-in;
+}
+
+.submit-btn{
+    text-align: center;
+    align-items: center;
+    padding-top: 4.5rem;
+}
+
+.add-expense{
+    cursor: pointer;
+    justify-content: center;
+    color: white;
+    background: rgba(29, 126, 29, 0.788);
+    cursor: pointer;
+    transition:all 0.2s ease-in;
+    border:none;
+    border-radius: 8px;
+    width: 19.5rem;
+    height: 2.5rem;
+    font-size: 1.6rem;
+}
+
+.add-expense:hover{
+    background: chartreuse;
+    color:forestgreen;
+}
+
+
+.table{
+    margin-top: 15vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 10vh;
+}
+
+.table-thead{
+    background:rgba(29, 126, 29, 0.788);
+    color:white;
+}
+
+.table-thead:hover{
+    background:rgba(3, 167, 3, 0.788);
+    color:white;
+    border: none;
+}
+
+.expenses{
+    font-size: 1rem;
+}
