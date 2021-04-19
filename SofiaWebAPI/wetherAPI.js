@@ -24,16 +24,16 @@ input.addEventListener("change", function () {
       return response.json();
     })
     .then((data) => {
-      showTodayWeather(data, strongEl);
+      showTodayWeather(data);
 
-      showWeeklyWeather(data, strongEl);
+      showWeeklyWeather(data);
 
       weatherOfSofiaBtn.style.display = "none";
       weatherForTheWeek.style.display = "block";
       weatherForToday.style.display = "block";
     })
     .catch((err) => {
-      forcastForDay.innerHTML = `Something went wrong! Page has not been found`;
+      forcastForDay.innerHTML = `Something went wrong! Page has not been found ${err.message}`;
       forcastForDay.style.display = "block";
     });
 });
@@ -44,9 +44,9 @@ function showTodayWeather(data) {
 
   data.list.slice(0, 1).forEach((c) => {
     let dataWeather = c.weather[0];
-    span = createElem("span");
-    icon = dataWeather.icon;
-    iconImg = createElem("IMG");
+    let span = createElem("span");
+    let icon = dataWeather.icon;
+    let iconImg = createElem("IMG");
     iconImg.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
     iconImg.display = "inline";
 
@@ -71,12 +71,12 @@ function showWeeklyWeather(data) {
   div.setAttribute("id", "divElWeekForecast");
 
   upcomingWeek.forEach((e) => {
-    span = createElem("span");
+    let span = createElem("span");
 
     e.weather.forEach((i) => {
       icon = i.icon;
     });
-    iconImg = createElem("IMG");
+    let iconImg = createElem("IMG");
     iconImg.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
     appentInnerHTML(
