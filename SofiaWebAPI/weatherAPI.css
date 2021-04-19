@@ -6,8 +6,8 @@
 
 body{
   background-image:
-  linear-gradient(to bottom, rgba(79, 80, 82, 0.678), rgba(88, 91, 92, 0.548)),
-  url("https://i.pinimg.com/originals/72/f6/3a/72f63a3d0e55e59a76210c710829de57.jpg");
+  linear-gradient(to bottom, rgba(79, 80, 82, 0.301), rgba(88, 91, 92, 0.418)),
+  url("https://wallpapercave.com/wp/Z4CD0Ic.jpg");
   background-position: center;
   background-size: cover;
   flex-direction: column;
@@ -56,7 +56,6 @@ ul{
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   padding-bottom: 20px;
   margin-bottom: 10px;
-  background-color: linear-gradient(to bottom, rgba(79, 80, 82, 0.678), rgba(88, 91, 92, 0.548));
 }
 
 div{
@@ -68,7 +67,7 @@ div{
 
 .SofiaWeatherBtn {
   color: rgb(255, 255, 255);
-  background: rgb(59, 117, 11);
+  background: rgb(11, 96, 117);
   cursor: pointer;
   transition: all 0.3s ease-in;
   padding: 0.5rem;
@@ -82,8 +81,9 @@ div{
 }
 
 .SofiaWeatherBtn:hover {
-  background: rgb(17, 180, 11);
-  color: white;
+  background: rgb(11, 180, 180);
+  border-radius: 10px;
+  border-color: rgb(11, 96, 117);
 }
 
 .cityname{

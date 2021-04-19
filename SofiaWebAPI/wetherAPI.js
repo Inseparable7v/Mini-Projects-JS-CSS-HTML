@@ -1,10 +1,10 @@
-var weatherOfSofiaBtn = document.getElementById("SofiaWeatherBtn");
-var weatherForTheWeek = document.getElementById("ForcastForTheWeek");
-var weatherForToday = document.getElementById("ForcastForToday");
-var forcastForDay = document.getElementById("forcastOneDay");
-var forcastForWeek = document.getElementById("forcastWeek");
-var input = document.getElementById("cityname");
-var divTodayEl = document.getElementById(".ForcastEl");
+let weatherOfSofiaBtn = document.getElementById("SofiaWeatherBtn");
+let weatherForTheWeek = document.getElementById("ForcastForTheWeek");
+let weatherForToday = document.getElementById("ForcastForToday");
+let forcastForDay = document.getElementById("forcastOneDay");
+let forcastForWeek = document.getElementById("forcastWeek");
+let input = document.getElementById("cityname");
+let divTodayEl = document.getElementById(".ForcastEl");
 
 input.addEventListener("change", function () {
   fetch(
@@ -24,57 +24,9 @@ input.addEventListener("change", function () {
       return response.json();
     })
     .then((data) => {
-      let span = createElem("span");
-      let iconImg;
-      let icon;
-      let div = createElem("div");
-      forcastForDay.innerHTML = `Forcast For Today in ${data.city.name}`;
-      forcastForDay.style.display = "block";
+      showTodayWeather(data, strongEl);
 
-      divEl = createElem("div");
-      appentToEl(weatherForToday, div);
-
-      data.list.slice(0, 1).forEach((c) => {
-        icon = c.weather[0].icon;
-        iconImg = createElem("IMG");
-        iconImg.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-        iconImg.display = "inline";
-
-        appentInnerHTML(
-          span,
-          `${data.city.name} Current Temperature ${c.main.temp}°C  Feels Like ${c.main.feels_like}°C (${c.clouds.all}%) cloudiness`
-        );
-        appentToEl(weatherForToday, span);
-        appentToEl(weatherForToday, iconImg);
-      });
-
-      let upcomingWeek = data.list.slice(0, 8);
-
-      forcastForWeek.innerHTML = `Forcast For 7 Days in ${data.city.name}`;
-      forcastForWeek.style.display = "block";
-
-      div = createElem("div");
-      div.classList.add("div-class");
-      div.setAttribute('id','divElWeekForecast');
-
-      upcomingWeek.forEach((e) => {
-        span = createElem("span");
-
-        e.weather.forEach((i) => {
-          icon = i.icon;
-        });
-        iconImg = createElem("IMG");
-        iconImg.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-        iconImg.display = "inline";
-        appentInnerHTML(
-          span,
-          `${data.city.name} Current Temperature ${e.main.temp}°C (${e.clouds.all}%)cloudiness`
-        );
-        appentToEl(weatherForTheWeek, div);
-        appentToEl(div, span);
-        appentToEl(span, iconImg);
-
-      });
+      showWeeklyWeather(data, strongEl);
 
       weatherOfSofiaBtn.style.display = "none";
       weatherForTheWeek.style.display = "block";
@@ -85,6 +37,58 @@ input.addEventListener("change", function () {
       forcastForDay.style.display = "block";
     });
 });
+
+function showTodayWeather(data) {
+  forcastForDay.innerHTML = `Forcast For Today in ${data.city.name}`;
+  forcastForDay.style.display = "block";
+
+  data.list.slice(0, 1).forEach((c) => {
+    let dataWeather = c.weather[0];
+    span = createElem("span");
+    icon = dataWeather.icon;
+    iconImg = createElem("IMG");
+    iconImg.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    iconImg.display = "inline";
+
+    appentInnerHTML(
+      span,
+      `<strong>${data.city.name}</strong> Current Temperature ${c.main.temp}°C  Feels Like ${c.main.feels_like}°C (${c.clouds.all}%) cloudiness <h2><strong>${dataWeather.description}</strong></h2>`
+    );
+
+    appentToEl(weatherForToday, span);
+    appentToEl(span, iconImg);
+  });
+}
+
+function showWeeklyWeather(data) {
+  let upcomingWeek = data.list.slice(1, 8);
+
+  forcastForWeek.innerHTML = `Forcast For 7 Days in ${data.city.name}`;
+  forcastForWeek.style.display = "block";
+
+  let div = createElem("div");
+  div.classList.add("div-class");
+  div.setAttribute("id", "divElWeekForecast");
+
+  upcomingWeek.forEach((e) => {
+    span = createElem("span");
+
+    e.weather.forEach((i) => {
+      icon = i.icon;
+    });
+    iconImg = createElem("IMG");
+    iconImg.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+    appentInnerHTML(
+      span,
+      `<strong>${data.city.name}</strong> ${e.main.temp}°C `
+    );
+
+    appentToEl(weatherForTheWeek, div);
+    appentToEl(div, span);
+    appentToEl(span, iconImg);
+  });
+}
 
 function createElem(el) {
   return document.createElement(el);
